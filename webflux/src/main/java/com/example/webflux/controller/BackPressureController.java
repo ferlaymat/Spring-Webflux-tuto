@@ -1,6 +1,8 @@
-package com.example.mongo.controller;
+package com.example.webflux.controller;
 
-import com.example.mongo.service.BackPressureService;
+
+import com.example.webflux.service.BackPressureService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("bp")
+@RequestMapping("/api/v1/backpressure")
+@RequiredArgsConstructor
 public class BackPressureController {
-    private BackPressureService backPressureService;
+    private final BackPressureService backPressureService;
 
-    public BackPressureController(BackPressureService backPressureService) {
-        this.backPressureService = backPressureService;
-    }
+
 
     @GetMapping("/crash")
     public Flux<Long> overflow(){
         return backPressureService.createOverflow();
     }
 
+    //close the call to end it
     @GetMapping(value = "/drop", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Long> overflowDrop(){
         return backPressureService.createOverflowDrop();

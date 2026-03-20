@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 
 @Slf4j
 @RestController
@@ -37,6 +38,11 @@ public class PersonController {
     @GetMapping
     public Flux<Person> getAllPerson(){
         return this.personService.getAllPerson();
+    }
+
+    @GetMapping("/tuple2")
+    public Flux<Tuple2<String, String>> getAllPersonTuple(){
+        return this.personService.getAllPersonTuple();
     }
 
     @PutMapping
