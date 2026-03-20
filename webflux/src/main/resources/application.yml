@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: webflux
+  r2dbc:
+    url: r2dbc:h2:mem:///db-webflux
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
