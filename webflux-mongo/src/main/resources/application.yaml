@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: webflux-mongo
+  mongodb:
+    uri: mongodb://localhost:27017/dbflux
+mongodb:
+    name: dbflux
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics
