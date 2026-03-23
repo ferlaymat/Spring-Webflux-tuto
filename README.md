@@ -22,6 +22,5 @@ The app will be available throught the url http://localhost:8080
 | Person | http://localhost:8080/api/v1/person | Standard CRUD sample |
 | Back pressure | http://localhost:8080/api/v1/backpressure | Give 3 cases to explain back pressure and how to basically manage it |
 | Producer | http://localhost:8080/api/v1/producer | Give sample of differents main Flux or Mono functions |
-| Producer | http://localhost:8080/api/v1/book | Give simple CRUD with different implementations in Reactive environment |
 | Book | http://localhost:8080/api/v1/book | Give simple CRUD with different implementations in Reactive environment |
 | MongoDb | http://localhost:8081 | Mongo Express UI|
